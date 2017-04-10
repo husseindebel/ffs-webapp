@@ -1,0 +1,5 @@
+<li *ngFor="let article of news">
+    <h3>{{article.title}}</h3>
+    <p>{{article.body}}</p>
+    <button (click)="displayData(article)">Read more!</button>
+</li>

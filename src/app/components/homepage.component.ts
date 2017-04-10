@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
-  selector: 'homepage',
-  template: `<h1>Hello {{name}}</h1>`,
+    moduleId: module.id,
+    selector: 'homepage',
+    templateUrl: 'homepage.template.html',
 })
 export class HomepageComponent  {
-    name = 'Angular';
+
+    constructor(private router: Router){}
+
+    displaySearch(searchQuery: string){
+        this.router.navigate(['/search', searchQuery]);
+    }
 }
