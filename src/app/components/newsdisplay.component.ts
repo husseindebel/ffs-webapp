@@ -17,7 +17,6 @@ export class NewsDisplayComponent  {
 
 
     ngOnInit() {
-        console.log(this.dataservice.news);
         this.currentNews = this.dataservice.news;
         console.log(this.currentNews);
     }

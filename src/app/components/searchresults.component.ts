@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { NewsService } from '../services/newsdata.service';
@@ -21,16 +21,16 @@ export class SearchResultComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private service: NewsService,
-      private dataservice: DisplayDataService,
+      public dataservice: DisplayDataService,
     ) { }
 
     ngOnInit() {
         this.route.params
           .switchMap((params: Params) => this.service.getNews(params['id']))
-          .subscribe((news: News) => this.news = news);
+          .subscribe((news) => this.news = news);
     }
 
-    displayData(article){
+    displayData(article: News){
         this.dataservice.news = article;
         console.log(this.dataservice.news)
         this.router.navigate(['/display', article.id])
