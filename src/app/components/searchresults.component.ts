@@ -39,7 +39,12 @@ export class SearchResultComponent implements OnInit {
         this.router.navigate(['/display', article.id])
     }
     toggleStory(){
+      if(this.showCurrentStory == false){
         this.showCurrentStory = true;
+      }else{
+        this.showCurrentStory = false;
+      }
+
     }
 
 }

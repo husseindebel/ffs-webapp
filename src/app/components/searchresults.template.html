@@ -1,18 +1,18 @@
-<!-- <li *ngFor="let article of news">
-    <h3>{{article.title}}</h3>
-    <p>{{article.body}}</p>
-    <button (click)="displayData(article)">Read more!</button>
-</li> -->
-
-
+<h3>Search Results</h3>>
 <li *ngFor="let article of news">
-  <div class="panel panel-default">
+  <div class="panel">
     <div class="panel-body">
-    {{article.title}}
+      {{article.title}}
     </div>
+  <div class = "buttonDetails">
+    <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
+  </div>
+      <div *ngIf="showCurrentStory">
     <div class="panel-footer">{{article.body}}</div>
+  </div>
   </div>
 </li>
 
 
 <!-- link: https://material.angularjs.org/latest/demo/content-->
+//TODO:Make button work separately
