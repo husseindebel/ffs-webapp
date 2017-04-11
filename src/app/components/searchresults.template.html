@@ -3,18 +3,16 @@
     <p>{{article.body}}</p>
     <button (click)="displayData(article)">Read more!</button>
 </li> -->
-<li *ngFor="let article of news">
-<div ng-controller="AppCtrl" layout="column" ng-cloak>
-  <md-toolbar class="md-warn">
-    <div class="md-toolbar-tools">
-      <h2 class="md-flex">{{article.title}}</h2>
-    </div>
-  </md-toolbar>
-  <!-- <md-content flex layout-padding>
-      {{article.body}}
-  </md-content> -->
 
-</div>
+
+<li *ngFor="let article of news">
+  <div class="panel panel-default">
+    <div class="panel-body">
+    {{article.title}}
+    </div>
+    <div class="panel-footer">{{article.body}}</div>
+  </div>
 </li>
+
 
 <!-- link: https://material.angularjs.org/latest/demo/content-->

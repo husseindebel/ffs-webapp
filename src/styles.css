@@ -3,3 +3,10 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
+.contentdemoBasicUsage div.demo-content {
+  height: 450px; }
+
+.contentdemoBasicUsage div[ng-controller] {
+  height: 50%;
+  padding-bottom: 15px;
+}

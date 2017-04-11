@@ -16,13 +16,16 @@ import {News} from '../News'
 export class SearchResultComponent implements OnInit {
     news: News[];
     currentStory: News;
+    showCurrentStory: boolean;
 
     constructor(
       private route: ActivatedRoute,
       private router: Router,
       private service: NewsService,
       public dataservice: DisplayDataService,
-    ) { }
+    ) {
+      this.showCurrentStory = false;
+    }
 
     ngOnInit() {
         this.route.params
@@ -34,6 +37,9 @@ export class SearchResultComponent implements OnInit {
         this.dataservice.news = article;
         console.log(this.dataservice.news)
         this.router.navigate(['/display', article.id])
+    }
+    toggleStory(){
+        this.showCurrentStory = true;
     }
 
 }
