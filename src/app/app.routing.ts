@@ -7,7 +7,7 @@ import { NewsDisplayComponent } from './components/newsdisplay.component';
 
 const appRoutes = [
     {path: '', component: HomepageComponent},
-    {path: 'search/:query', component: SearchResultComponent},
+    {path: 'search', component: SearchResultComponent},
     {path: 'display/:id', component: NewsDisplayComponent, data: {something : 'hussein'}}
 ]
 

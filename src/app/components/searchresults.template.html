@@ -3,13 +3,13 @@
     <li *ngFor="let article of news">
       <div class="panel">
         <div class="panel-body">
-          {{article.title}}
+          {{article.Headline}}
         </div>
       <div class = "buttonDetails">
         <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
       </div>
           <div *ngIf="showCurrentStory">
-        <div class="panel-footer">{{article.body}}</div>
+        <div class="panel-footer">{{article.NewsText}}</div>
       </div>
       </div>
     </li>

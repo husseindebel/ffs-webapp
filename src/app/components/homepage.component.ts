@@ -11,7 +11,9 @@ export class HomepageComponent  {
 
     constructor(private router: Router){}
 
-    displaySearch(searchQuery: string){
-        this.router.navigate(['/search', searchQuery]);
+    displaySearch(topicCode: string, ric: string){
+        this.router.navigate(['/search'], {
+            queryParams: { topicCode: topicCode, ric: ric}
+        });
     }
 }

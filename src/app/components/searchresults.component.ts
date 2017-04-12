@@ -14,7 +14,7 @@ import {News} from '../News'
     providers: [NewsService, DisplayDataService],
 })
 export class SearchResultComponent implements OnInit {
-    news: News[];
+    news: newsdata[];
     currentStory: News;
     showCurrentStory: boolean;
 
@@ -28,17 +28,11 @@ export class SearchResultComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.route.params
-          .switchMap((params: Params) => this.service.getNews(params['id']))
-          .subscribe((news) => this.news = news);
+        this.route.queryParams
+          .switchMap((params: Params) => this.service.getNews(params['topicCode'], params['ric']))
+          .subscribe((news) => this.news = news['NewsDataSet']);
     }
 
-    displayData(article: News){
-        this.dataservice.news = article;
-        console.log(this.dataservice.news)
-        this.router.navigate(['/display', article.id])
-    }
-    
     toggleStory(){
       if(this.showCurrentStory == false){
         this.showCurrentStory = true;
@@ -48,4 +42,12 @@ export class SearchResultComponent implements OnInit {
 
     }
 
+}
+
+interface newsdata {
+    Headline:string;
+    InstrumentIDs:string[];
+    NewsText:string;
+    TimeStamp:string;
+    TopicCode:string[];
 }

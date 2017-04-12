@@ -6,7 +6,6 @@ import {Injectable} from '@angular/core';
 export class DisplayDataService {
     public news: News;
     constructor(){
-        console.log('wtf');
         this.news = {
             id: 6,
             title: 'hussein',
