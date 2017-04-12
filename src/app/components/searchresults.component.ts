@@ -29,7 +29,9 @@ export class SearchResultComponent implements OnInit {
 
     ngOnInit() {
         this.route.queryParams
-          .switchMap((params: Params) => this.service.getNews(params['topicCode'], params['ric']))
+          .switchMap((params: Params) => this.service.getNews(
+                params['startTime'], params['endTime'],
+                params['topicCode'], params['ric']))
           .subscribe((news) => this.news = news['NewsDataSet']);
     }
 

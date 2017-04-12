@@ -3,7 +3,7 @@
 <div style="position: relative;top: 50%; transform: translateY(+50%);">
 
 <div style="text-align:center;">
-<img src="imgs/CNLogo.png" alt="Mountain View" align="middle" style="width:165px;height:90px;">
+<img src="imgs/CNLogo.png" alt="Mountain View" align="middle" style="width:165px;height:80px;">
 </div>
 
 <form>
@@ -11,6 +11,7 @@
     <div class="col s3"></div>
 
         <div class="col s6" style="text-align:center;">
+        <p>Topic Code</p>
           <div class="input-field white">
               <input placeholder="Topic Code" id="search-example" type="search" #topicCode required>
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -25,6 +26,7 @@
     <div class="col s3"></div>
 
         <div class="col s6" style="text-align:center;">
+            <p>RIC</p>
           <div class="input-field white">
               <input placeholder="RIC" id="search-example" type="search" #ric required>
               <label class="label-icon" for="search"><i class="material-icons">search</i></label>
@@ -37,8 +39,38 @@
 
 <div class="input-field row">
     <div class="col s3"></div>
+
+        <div class="col s6" style="text-align:center;">
+            <p>Starting Time (in form yyyy-mm-dd)</p>
+          <div class="input-field white">
+              <input placeholder="starting time" id="search-example" type="search" #startTime required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+        </div>
+
+  <div class="col s3"></div>
+</div>
+
+<div class="input-field row">
+    <div class="col s3"></div>
+
+        <div class="col s6" style="text-align:center;">
+            <p>End Time (in form yyyy-mm-dd)</p>
+          <div class="input-field white">
+              <input placeholder="end time" id="search-example" type="search" #endTime required>
+              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+              <i class="material-icons">close</i>
+            </div>
+        </div>
+
+  <div class="col s3"></div>
+</div>
+
+<div class="input-field row">
+    <div class="col s3"></div>
     <div class="col s6" style="text-align:center">
-      <button type="button" class="waves-effect waves-light btn white" style="color:black" (click)="displaySearch(topicCode.value, ric.value)">Search</button>
+      <button type="button" class="waves-effect waves-light btn white" style="color:black" (click)="displaySearch(topicCode.value, ric.value, startTime.value, endTime.value)">Search</button>
     </div>
 
   <div class="col s3"></div>
