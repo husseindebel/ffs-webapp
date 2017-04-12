@@ -38,6 +38,7 @@ export class SearchResultComponent implements OnInit {
         console.log(this.dataservice.news)
         this.router.navigate(['/display', article.id])
     }
+    
     toggleStory(){
       if(this.showCurrentStory == false){
         this.showCurrentStory = true;
