@@ -3,15 +3,14 @@ import 'rxjs/add/operator/switchMap';
 import { OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { MaterialModule} from '@angular/material';
-import { NewsService } from '../services/newsdata.service';
-import {DisplayDataService} from '../services/displaydata.service';
-import {News} from '../News'
+import { NewsService } from '../../services/newsdata.service';
+import {News} from '../../News'
 
 @Component({
     moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'searchresults.template.html',
-    providers: [NewsService, DisplayDataService],
+    templateUrl: 'searchresults.component.html',
+    providers: [NewsService],
 })
 export class SearchResultComponent implements OnInit {
     news: newsdata[];
@@ -22,7 +21,6 @@ export class SearchResultComponent implements OnInit {
       private route: ActivatedRoute,
       private router: Router,
       private service: NewsService,
-      public dataservice: DisplayDataService,
     ) {
       this.showCurrentStory = false;
     }

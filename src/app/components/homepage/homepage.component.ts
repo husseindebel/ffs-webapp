@@ -1,11 +1,10 @@
-
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
     moduleId: module.id,
     selector: 'homepage',
-    templateUrl: 'homepage.template.html',
+    templateUrl: 'homepage.component.html',
 })
 export class HomepageComponent  {
 
