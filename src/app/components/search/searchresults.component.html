@@ -1,16 +1,26 @@
 <h3>Search Results</h3>
 <ul style="list-style: none;">
-    <li *ngFor="let article of news">
-      <div class="panel">
-        <div class="panel-body">
-          {{article.Headline}}
+
+    <!-- loading screen goes here  -->
+    <div *ngIf="logfile === undefined">loading...</div>
+    <div *ngIf="logfile !== undefined">
+        <div *ngIf="logfile.success === true">
+            <li *ngFor="let article of news">
+              <div class="panel">
+                <div class="panel-body">
+                  {{article.Headline}}
+                </div>
+              <div class = "buttonDetails">
+                <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
+              </div>
+                  <div *ngIf="showCurrentStory">
+                <div class="panel-footer">{{article.NewsText}}</div>
+              </div>
+              </div>
+            </li>
         </div>
-      <div class = "buttonDetails">
-        <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
-      </div>
-          <div *ngIf="showCurrentStory">
-        <div class="panel-footer">{{article.NewsText}}</div>
-      </div>
-      </div>
-    </li>
+        <div *ngIf="logfile.success === false">
+            no results :(
+        </div>
+    </div>
 </ul>

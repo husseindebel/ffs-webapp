@@ -1,56 +1,27 @@
-<h3></h3>
-
-
-<div style="position: relative;top: 50%; transform: translateY(+50%);">
-
-<div style="text-align:center;">
-<img src="assets/imgs/CNLogo.png" alt="Mountain View" align="middle" style="width:165px;height:80px;">
-</div>
-
-<form>
-    <div class="col s6" style="text-align:center;">
-        <md-input-container>
-          <input mdInput placeholder="Topic Code" #topicCode>
-        </md-input-container>
-
-        <md-menu #appMenu="mdMenu">
-          <button md-menu-item> RIC </button>
-          <button md-menu-item> TopicCode </button>
-        </md-menu>
-
-        <button md-icon-button [mdMenuTriggerFor]="appMenu">
-           <md-icon>more_vert</md-icon>
-        </button>
+<div class="container">
+    <div class="row">
+        <div class="main-content">
+            <div class="homepage-logo" style="text-align:center;">
+                <img src="assets/imgs/CNLogo.png" alt="Mountain View" align="middle" style="width:165px;height:80px;">
+            </div>
+              <div class="card">
+                <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
+                    <div class="input-field">
+                        <input #searchQuery id="search" type="search" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <a class="btn-small white">
+                            {{this.currentSearch}}
+                        </a>
+                        <ul id="dropdown1" class="dropdown-content">
+                          <li><a (click)="setCurrentSearch('RIC')">RIC</a></li>
+                          <li><a (click)="setCurrentSearch('Topic Code')">Topic Code</a></li>
+                        </ul>
+                        <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </div>
+                </form>
+              </div>
+        </div>
     </div>
-
-    <div class="col s6" style="text-align:center;">
-        <md-input-container>
-          <input mdInput placeholder="RIC" #ric>
-        </md-input-container>
-    </div>
-
-    <div class="col s6" style="text-align:center;">
-        <md-input-container>
-          <input mdInput placeholder="Starting time" #startTime>
-        </md-input-container>
-    </div>
-
-    <div class="col s6" style="text-align:center;">
-        <md-input-container>
-          <input mdInput placeholder="End time" #endTime>
-        </md-input-container>
-    </div>
-
-<div class="input-field row">
-    <div class="col s6" style="text-align:center">
-        <!-- add this later -->
-        <!-- (click)="displaySearch(topicCode.value, ric.value, startTime.value, endTime.value) -->
-        <button md-button (click)="displaySearch(topicCode.value, ric.value, startTime.value, endTime.value)">
-            Search
-        </button>
-    </div>
-</div>
-
-</form>
-
 </div>

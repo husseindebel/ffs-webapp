@@ -14,6 +14,7 @@ import {News} from '../../News'
 })
 export class SearchResultComponent implements OnInit {
     news: newsdata[];
+    logfile: Object[];
     currentStory: News;
     showCurrentStory: boolean;
 
@@ -30,7 +31,10 @@ export class SearchResultComponent implements OnInit {
           .switchMap((params: Params) => this.service.getNews(
                 params['startTime'], params['endTime'],
                 params['topicCode'], params['ric']))
-          .subscribe((news) => this.news = news['NewsDataSet']);
+          .subscribe((news) => {
+              this.news = news['NewsDataSet'];
+              this.logfile = news['logfile']
+          });
     }
 
     toggleStory(){

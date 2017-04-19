@@ -16,10 +16,10 @@ export class NewsService{
         this.base_api_url += 'startTime=' + startTime + 'T00:00:00Z';
         this.base_api_url += '&endTime=' + endTime + 'T00:00:00Z';
         if(ric !== ""){
-            this.base_api_url += '&' + ric ;
+            this.base_api_url += '&ric=RIC_' + ric ;
         }
         if (topicCode !== ""){
-            this.base_api_url += '&' + topicCode;
+            this.base_api_url += '&topicCode=' + topicCode;
         }
         // console.log(topicCode, ric);
         console.log(this.base_api_url);
