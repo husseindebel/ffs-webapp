@@ -8,8 +8,9 @@ import {News} from '../../News'
 
 @Component({
     moduleId: module.id,
-    selector: 'my-app',
+    selector: 'search-results',
     templateUrl: 'searchresults.component.html',
+    styleUrls: ['searchresults.component.css'],
     providers: [NewsService],
 })
 export class SearchResultComponent implements OnInit {
