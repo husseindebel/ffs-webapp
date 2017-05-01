@@ -1,0 +1,7 @@
+.collapsible-body{
+  background-color: #FFFFFF;
+}
+
+li:not(:last-child){
+  margin-bottom: 15px;
+}

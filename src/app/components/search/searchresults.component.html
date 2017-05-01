@@ -1,33 +1,47 @@
 <div class="container">
     <h3>Search Results</h3>
-    <ul style="list-style: none;">
-        <!-- loading screen goes here  -->
-        <div *ngIf="logfile === undefined">loading...</div>
-        <div *ngIf="logfile !== undefined">
-            <div *ngIf="logfile.success === true">
-                <li *ngFor="let article of news">
-                    <div class="container search-results">
-                        <div class="row">
-                            <div class="col s12 m6">
-                              <div class="card white">
-                                <div class="panel-body">
-                                  {{article.Headline}}
-                                </div>
-                              <div class = "buttonDetails">
-                                <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
-                              </div>
-                                  <div *ngIf="showCurrentStory">
-                                <div class="panel-footer">{{article.NewsText}}</div>
-                              </div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </div>
-            <div *ngIf="logfile.success === false">
-                no results :(
-            </div>
-        </div>
-    </ul>
-</div>
+<div *ngIf="logfile === undefined">loading...</div>
+<ul class="collapsible popout" data-collapsible="accordion">
+  <li *ngFor="let article of news">
+     <div class="collapsible-header"><i class="material-icons">bubble_chart</i>{{article.Headline}}</div>
+     <div class="collapsible-body"><span>{{article.NewsText}}</span></div>
+ </li>
+  <div *ngIf="logfile"> {{logfile.success ? "":"No results:( Please try again"}} </div>
+ </ul>
+
+<!--Old version below -->
+
+ <!-- <ul style="list-style: none;">
+     <li>
+     <div *ngIf="logfile === undefined">loading...</div>
+     <div *ngIf="logfile !== undefined">
+         <div *ngIf="logfile.success === true">
+             <li *ngFor="let article of news">
+                 <div class="container search-results">
+                     <div class="row">
+                         <div class="col s12 m6">
+                           <div class="card white">
+                             <div class="panel-body">
+                               {{article.Headline}}
+                             </div>
+                           <div class = "buttonDetails">
+                             <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
+                           </div>
+                               <div *ngIf="showCurrentStory">
+                             <div class="panel-footer">{{article.NewsText}}</div>
+                           </div>
+                         </div>
+                         </div>
+
+                     </div>
+                 </div>
+
+             </li>
+         </div>
+         <div *ngIf="logfile.success === false">
+             no results :(
+         </div>
+       </div>
+
+       </ul>
+     </div> -->
