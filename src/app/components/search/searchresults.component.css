@@ -1,7 +1,14 @@
 .collapsible-body{
   background-color: #FFFFFF;
+  font-weight: bold;
 }
 
 li:not(:last-child){
   margin-bottom: 15px;
+}
+.custombutton{
+  position: relative;
+  left:70%;
+  top :50%;
+  size:50%;
 }
