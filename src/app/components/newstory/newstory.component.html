@@ -1,5 +1,14 @@
 <div *ngIf="story === undefined">loading...</div>
 <div *ngIf="story !== undefined">
-<h1>{{story.Headline}}</h1>
-<p>{{story.NewsText}}
+    <div class="container">
+        <br/>
+        <div class="card white">
+            <div class="card-content">
+                <span class="card-title">
+                    <h1>{{story.Headline}}</h1>
+                </span>
+                <p>{{story.NewsText}}</p>
+            </div>
+        </div>
+    </div>
 </div>
