@@ -8,22 +8,31 @@ export class NewsService{
     base_api_url: string
 
     constructor(private http: Http){
-        this.base_api_url = 'http://138.68.255.10/api/newsdata?'
+        this.base_api_url = 'http://138.68.255.10/api/newsdata'
     }
 
     getNews(startTime: string, endTime:string, topicCode: string, ric:string){
+        var news_url = this.base_api_url;
 
-        this.base_api_url += 'startTime=' + startTime + 'T00:00:00Z';
-        this.base_api_url += '&endTime=' + endTime + 'T00:00:00Z';
+        news_url += '?startTime=' + startTime + 'T00:00:00Z';
+        news_url += '&endTime=' + endTime + 'T00:00:00Z';
         if(ric !== ""){
-            this.base_api_url += '&ric=RIC_' + ric ;
+            news_url += '&ric=RIC_' + ric ;
         }
         if (topicCode !== ""){
-            this.base_api_url += '&topicCode=' + topicCode;
+            news_url += '&topicCode=' + topicCode;
         }
         // console.log(topicCode, ric);
-        console.log(this.base_api_url);
-        return this.http.get(this.base_api_url)
+        console.log(news_url);
+        return this.http.get(news_url)
+                .map(res => res.json());
+    }
+
+    getNewsbyHeadline(headline: string){
+        var headline_url = this.base_api_url;
+        headline_url += '/headline?h='+headline;
+        console.log(headline_url);
+        return this.http.get(headline_url)
                 .map(res => res.json());
     }
 }

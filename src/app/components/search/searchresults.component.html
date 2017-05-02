@@ -1,50 +1,23 @@
 <div class="container">
     <h3>Search Results</h3>
-<ul class="collapsible" data-collapsible="expandable">
-  <div *ngIf="logfile === undefined">loading...</div>
-  <li *ngFor="let article of news">
-     <div class="collapsible-header"><i class="material-icons">bubble_chart</i>{{article.Headline}}</div>
-     <div class="collapsible-body" style="display:block;">{{article.NewsText.slice(0,149)}}
-       <button class="custombutton"><i class="material-icons">details</i></button>
-     </div>
- </li>
-  <div *ngIf="logfile"> {{logfile.success ? "":"No results:( Please try again"}} </div>
- </ul>
-
-
-<!--Old version below -->
-
- <!-- <ul style="list-style: none;">
-     <li>
-     <div *ngIf="logfile === undefined">loading...</div>
-     <div *ngIf="logfile !== undefined">
-         <div *ngIf="logfile.success === true">
-             <li *ngFor="let article of news">
-                 <div class="container search-results">
-                     <div class="row">
-                         <div class="col s12 m6">
-                           <div class="card white">
-                             <div class="panel-body">
-                               {{article.Headline}}
-                             </div>
-                           <div class = "buttonDetails">
-                             <button (click)="toggleStory()">{{showCurrentStory ? "hide":"show"}}</button>
-                           </div>
-                               <div *ngIf="showCurrentStory">
-                             <div class="panel-footer">{{article.NewsText}}</div>
-                           </div>
-                         </div>
-                         </div>
-
-                     </div>
-                 </div>
-
-             </li>
-         </div>
-         <div *ngIf="logfile.success === false">
-             no results :(
-         </div>
-       </div>
-
-       </ul>
-     </div> -->
+    <ul style="list-style: none;">
+      <div *ngIf="logfile === undefined">loading...</div>
+      <li *ngFor="let article of news">
+         <div class="row">
+         <br/>
+            <div class="col s12 m6 offset-m3">
+                <div class="card white">
+                    <div class="card-content black-text">
+                        <span class="card-title">{{article.Headline}}</span>
+                        <p>{{article.NewsText.slice(0,149)}}</p>
+                    </div>
+                    <div class="card-action">
+                        <a (click)="displayNewsStory(article.Headline)" class="waves-effect waves-light btn search-button" id="display-news-button">Read More</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+     </li>
+        <div *ngIf="logfile"> {{logfile.success ? "":"No results:( Please try again"}} </div>
+     </ul>
+</div>

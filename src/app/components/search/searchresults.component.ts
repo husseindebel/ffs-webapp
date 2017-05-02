@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 import { OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { MaterialModule} from '@angular/material';
 import { NewsService } from '../../services/newsdata.service';
 import {News} from '../../News'
 
@@ -45,6 +44,13 @@ export class SearchResultComponent implements OnInit {
         this.showCurrentStory = false;
       }
 
+    }
+
+    displayNewsStory(headline:string){
+        console.log("we are going to the news :)", encodeURIComponent(headline));
+        this.router.navigate(['/news'], {
+            queryParams: { headline: encodeURIComponent(headline) }
+        });
     }
 
 }
