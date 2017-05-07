@@ -1,27 +1,89 @@
-<div class="container">
+<div class="red lighten-1">
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
     <div class="row">
-        <div class="main-content">
-            <div class="homepage-logo" style="text-align:center;">
-                <img src="assets/imgs/CNLogo.png" alt="Mountain View" align="middle" style="width:165px;height:80px;">
-            </div>
-              <div class="card">
-                <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
-                    <div class="input-field">
-                        <input #searchQuery id="search" type="search" required>
-                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                        <a class="btn-small white">
-                            {{this.currentSearch}}
-                        </a>
-                        <ul id="dropdown1" class="dropdown-content">
-                          <li><a (click)="setCurrentSearch('RIC')">RIC</a></li>
-                          <li><a (click)="setCurrentSearch('Topic Code')">Topic Code</a></li>
-                        </ul>
-                        <a class="dropdown-button" href="#!" data-activates="dropdown1">
-                            <i class="material-icons right">arrow_drop_down</i>
-                        </a>
-                    </div>
-                </form>
-              </div>
-        </div>
+      <div class="col s1"></div>
+      <div class="col s10">
+    <h4 class="header center white-text">THE ONE PLACE WITH ALL YOUR LATEST NEWS
+COMPANY BY COMPANY</h4>
+    <div class="row center">
+      <h5 class="header col s12 light white-text">Your news to you</h5>
+      </div>
+      <div class="col s1"></div>
     </div>
+    </div>
+
+    <div class="row">
+      <div class="col s1"></div>
+      <div class="col s10 ">
+        <div class="card white">
+
+          <div class="row"></div>
+          <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm.value, start.value, end.value)">
+
+          <div class="row">
+            <div class="input-field col s8" style="left:30px; right:10px; width 50">
+                <div *ngIf="currentSearch === 'ric'">
+                <input [(ngModel)]="searchTerms['ric']" name="ric" placeholder="{{currentSearch}}" #ric id="search" type="date"  required>
+                </div>
+
+                <div *ngIf="currentSearch === 'topic'">
+                <input [(ngModel)]="searchTerms['topic']" name="topic" placeholder="{{currentSearch}}" #topic id="search" type="date"  required>
+                </div>
+            </div>
+            <div class="input-field col s4" style="left:30px; right:30px">
+              <div class="switch" style="text-align:center;">
+                <label>
+                  RIC
+                  <input (click)="setCurrentSearch(searchForm.value)" type="checkbox" class="red lighten-1">
+                  <span class="lever red lighten-1"></span>
+                  Topic
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s5" style="left:20px; right:10px; width 50">
+              <input #start placeholder="Start Date" id="search" type="date"  required>
+            </div>
+            <div class="col s1"></div>
+            <div class="input-field col s5" style="left:30px; right:30px">
+              <input #end placeholder="End Date" type="date" class="datepicker">
+            </div>
+          </div>
+          <div class="row"></div>
+          <div class="row">
+            <div class="col s1"></div>
+            <a (click)="onSubmit(searchForm.value, start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
+          </div>
+
+          <div class="row"></div>
+          <div class="row"></div>
+
+
+          </form>
+
+
+        </div>
+      </div>
+      <div class="col s1"></div>
+    </div>
+
+
+
+    <br><br>
+
+  </div>
+</div>
+</div>
+<div class="white" style="width: 100%;
+height: 50%;
+position: absolute;
+top: 0;
+left: 0;
+transform: translateY(+100%);
+z-index: -10">
+
 </div>
