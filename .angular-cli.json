@@ -21,9 +21,6 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [
-          "assets/js/init.js"
-      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
