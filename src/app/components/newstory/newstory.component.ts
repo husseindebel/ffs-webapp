@@ -3,6 +3,7 @@ import 'rxjs/add/operator/switchMap';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {NewsService} from '../../services/newsdata.service';
 import {OnInit} from '@angular/core';
+// import {CompanypageComponent} from '../companypage/companypage.component';
 
 @Component({
     moduleId: module.id,
@@ -33,10 +34,16 @@ export class NewsStoryComponent implements OnInit{
     }
 
     formatResults(story){
-        console.log(story.NewsText);
+        // console.log(story.NewsText);
         this.story = story
     }
 
+    displayCompany(ric){
+        console.log("hussein");
+        this.router.navigate(['/company'], {
+            queryParams: { ric: ric }
+        });
+    }
 }
 
 interface NewsStory {
