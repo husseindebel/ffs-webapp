@@ -133,6 +133,7 @@ export class HorizontalTimelineComponent implements AfterViewInit {
       eventsMinLapse);
     // the timeline has been initialize - show it
     this.loaded = true;
+    console.log(this.loaded)
   }
 
   updateSlide(timelineTotWidth, string) {

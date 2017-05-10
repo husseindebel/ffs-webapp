@@ -1,1 +1,6 @@
+<div *ngIf="isAvailable">
 <horizontal-timeline [timelineElements]="timeline" [showContent]="true"></horizontal-timeline>
+</div>
+<div *ngIf="!isAvailable">
+    loading...
+</div>
