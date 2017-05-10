@@ -25,11 +25,11 @@ COMPANY BY COMPANY</h4>
           <div class="row">
             <div class="input-field col s8" style="left:30px; right:10px; width 50">
                 <div *ngIf="currentSearch === 'ric'">
-                <input [(ngModel)]="searchTerms['ric']" name="ric" placeholder="{{currentSearch}}" #ric id="search" type="date"  required>
+                <input [(ngModel)]="searchTerms['ric']" name="ric" placeholder="{{currentSearch}}" #ric id="search" type="search"  required>
                 </div>
 
                 <div *ngIf="currentSearch === 'topic'">
-                <input [(ngModel)]="searchTerms['topic']" name="topic" placeholder="{{currentSearch}}" #topic id="search" type="date"  required>
+                <input [(ngModel)]="searchTerms['topic']" name="topic" placeholder="{{currentSearch}}" #topic id="search" type="search"  required>
                 </div>
             </div>
             <div class="input-field col s4" style="left:30px; right:30px">

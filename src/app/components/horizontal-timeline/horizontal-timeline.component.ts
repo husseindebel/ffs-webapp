@@ -124,6 +124,7 @@ export class HorizontalTimelineComponent implements AfterViewInit {
   }
 
   initTimeline(timeLines: TimelineElement[]) {
+      console.log(timeLines)
     let eventsMinLapse = HorizontalTimelineComponent.minLapse(timeLines);
     // assign a left position to the single events along the timeline
     this.setDatePosition(timeLines, this.eventsMinDistance, eventsMinLapse);
