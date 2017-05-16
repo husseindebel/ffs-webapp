@@ -4,6 +4,7 @@ import { OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NewsService } from '../../services/newsdata.service';
 import {News} from '../../News'
+import { Observable }         from 'rxjs/Observable';
 
 @Component({
     moduleId: module.id,
@@ -17,6 +18,7 @@ export class SearchResultComponent implements OnInit {
     logfile: Object[];
     currentStory: News;
     showCurrentStory: boolean;
+    searchTerms: string[];
 
     constructor(
       private route: ActivatedRoute,
@@ -27,6 +29,11 @@ export class SearchResultComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.route.queryParams.subscribe((event) => {
+            this.searchTerms = event['topicCode'].split(',');
+            this.searchTerms = this.searchTerms.concat(event['ric'].split(','));
+        })
+        // this.searchTerms = this.searchTerms.concat(this.route.queryParams.map((params: Params) => params['ric']));
         this.route.queryParams
           .switchMap((params: Params) => this.service.getNews(
                 params['startTime'], params['endTime'],
@@ -44,6 +51,11 @@ export class SearchResultComponent implements OnInit {
         this.showCurrentStory = false;
       }
 
+    }
+
+
+    doSomething(){
+        console.log("hussein");
     }
 
     displayNewsStory(headline:string){

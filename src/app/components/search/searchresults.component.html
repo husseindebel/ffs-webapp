@@ -1,8 +1,16 @@
 <div class="container">
     <h3>Search Results</h3>
+  <!-- Dropdown Structure -->
+  <p>filter by:<p><a class='dropdown-button red btn' href='#' data-activates='dropdown1'>Date</a>
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+  </ul>
+    <tag-input [(ngModel)]="searchTerms" name="name" (onTextChange)="doSomething()"></tag-input>
     <ul style="list-style: none;">
       <div *ngIf="logfile === undefined">loading...</div>
       <div class="row">
+          <!-- <div (click)="doSomething()" class="red btn">hussein</div> -->
       <li *ngFor="let article of news">
           <div class="col s1"></div>
                   <div class="col s5">
