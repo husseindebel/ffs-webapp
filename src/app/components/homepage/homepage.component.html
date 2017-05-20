@@ -1,72 +1,103 @@
-<div class="red lighten-1">
-<div class="section no-pad-bot" id="index-banner">
-  <div class="container">
-    <br><br>
-    <div class="row">
-      <div class="col s1"></div>
-      <div class="col s10">
-    <h4 class="header center white-text">THE ONE PLACE WITH ALL YOUR LATEST NEWS
-COMPANY BY COMPANY</h4>
-    <div class="row center">
-      <h5 class="header col s12 light white-text">Your news to you</h5>
-      </div>
-      <div class="col s1"></div>
-    </div>
-    </div>
+<section id="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<h3>The latest information on industry sectors</h3>
+				<h1>SECTORS</h1>
+				<hr>
+				<a href="#search" class="btn btn-default">Start exploring</a>
+				<a href="#about" class="btn btn-danger">What we do</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="search">
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<div class="section-title">
+					<h1 class="heading">What would you like to search for?</h1>
+				</div>
+			</div>
+            <div class="search-card card col s4">
+                <div class="card__front">
+                    <div class="card-content black-text">
+                        <i class="icon-compass medium-icon"></i>
+                        <h3>Sector</h3>
+                        <hr>
+                        <p>Search for a sector and see the latest information on belonging companies.</p>
+                    </div>
+                </div>
+                <div class="card__back">
 
-    <div class="row">
-      <div class="col s1"></div>
-      <div class="col s10 ">
-        <div class="card white">
-          <div class="row"></div>
-          <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm.value, start.value, end.value)">
-
-          <div class="row">
-            <div class="input-field col s8" style="left:30px; right:10px; width 50">
-                <tag-input [(ngModel)]="searchTerms" name="name"></tag-input>
+                </div>
             </div>
-          </div>
+	        <div class="search-card card col s4">
+	            <div class="card__front">
+	                <div class="card-content black-text">
+                        <i class="icon-browser medium-icon"></i>
+                        <h3>News articles</h3>
+                        <hr>
+                        <p>Search with a company and/or topic code and select a time period to see
+                        corresponding news articles</p>
+                    </div>
+                </div>
+                <div class="card__back">
 
-          <div class="row">
-            <div class="input-field col s5" style="left:20px; right:10px; width 50">
-              <input #start placeholder="Start Date" id="search" type="date"  required>
+                </div>
             </div>
-            <div class="col s1"></div>
-            <div class="input-field col s5" style="left:30px; right:30px">
-              <input #end placeholder="End Date" type="date" class="datepicker">
+		</div>
+	</div>
+</section>
+
+<section id="sectors">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div class="section-title">
+					<h1 class="heading bold">SECTORS</h1>
+					<hr>
+				</div>
+			</div>
+			<!-- ISO section -->
+			<div class="iso-section">
+				<ul class="filter-wrapper clearfix">
+               		 <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
+               		 <li><a href="#" class="opc-main-bg" data-filter=".html">HTML</a></li>
+               		 <li><a href="#" class="opc-main-bg" data-filter=".photoshop">Photoshop</a></li>
+                	 <li><a href="#" class="opc-main-bg" data-filter=".wordpress">Wordpress</a></li>
+                	 <li><a href="#" class="opc-main-bg" data-filter=".mobile">Mobile</a></li>
+           		</ul>
+           		<div class="iso-box-section wow fadeIn" data-wow-delay="0.9s">
+           			<div class="iso-box-wrapper">
+			            <div class="card effect__click iso-box wordpress mobile col-lg-4 col-md-4 col-sm-6">
+                            <div class="card__front">
+                                <img class="img-fill" src="images/food.jpg">
+                                <span class="card__text">food</span>
+                            </div>
+                            <div class="card__back">
+                                <span class="card__backtext">short description of the sector</span>
+                            </div>
+                        </div>
+                       <div class="card effect__click iso-box html mobile col-lg-4 col-md-4 col-sm-6">
+                            <div class="card__front">
+                                <img class="img-fill" src="images/food.jpg"><span class="card__text">food</span>
+                            </div>
+                            <div class="card__back">
+                                <span class="card__text">back</span>
+                            </div>
+                        </div>
+                        <div class="card effect__click iso-box mobile col-lg-4 col-md-4 col-sm-6">
+                            <div class="card__front">
+                                <img class="img-fill" src="images/food.jpg"><span class="card__text">food</span>
+                            </div>
+                            <div class="card__back">
+                                <span class="card__text">back</span>
+                            </div>
+                        </div>
+           			</div>
+           		</div>
             </div>
-          </div>
-          <div class="row"></div>
-          <div class="row">
-            <div class="col s1"></div>
-            <a (click)="onSubmit(start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
-          </div>
-
-          <div class="row"></div>
-          <div class="row"></div>
-
-
-          </form>
-
-
-        </div>
-      </div>
-      <div class="col s1"></div>
+	    </div>
     </div>
-
-
-
-    <br><br>
-
-  </div>
-</div>
-</div>
-<div class="white" style="width: 100%;
-height: 50%;
-position: absolute;
-top: 0;
-left: 0;
-transform: translateY(+100%);
-z-index: -10">
-
-</div>
+</section>

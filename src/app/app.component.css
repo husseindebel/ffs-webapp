@@ -1,0 +1,12 @@
+.navbar-text {
+    color: #FE4A67;
+    font-weight: 800;
+    font-size: 26px;
+    position: fixed;
+    padding-left: 10px;
+}
+
+.navbar-side-content{
+    font-weight: 800;
+    font-size: 26px;
+}
