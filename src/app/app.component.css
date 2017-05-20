@@ -8,5 +8,56 @@
 
 .navbar-side-content{
     font-weight: 800;
-    font-size: 26px;
+}
+
+.custom-navbar {
+    background: #4B4B4B;
+    margin-bottom: 0;
+}
+.custom-navbar .navbar-brand  {
+  color: #FE4A67;
+  font-weight: 800;
+  font-size: 26px;
+}
+.custom-navbar .navbar-brand .navbar-toggle {
+    background: #FE4A67;
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+    }
+.custom-navbar .nav li a {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    }
+.custom-navbar .nav li a:hover {
+  	background: transparent;
+    color: #eeeeee;
+}
+.custom-navbar .nav > li > a:focus {
+  background-color: transparent;
+  color: #ffffff;
+  outline: none;
+}
+.custom-navbar .nav li.active > a {
+      color: #FE4A67;
+    }
+.custom-navbar .navbar-toggle {
+        border: none;
+        padding-top: 10px;
+    }
+.custom-navbar .navbar-toggle .icon-bar {
+        background: #FE4A67;
+        border-color: transparent;
+    }
+
+@media(min-width:900px){
+    .custom-navbar {
+            background: #4B4B4B;
+            padding: 10px;
+         }
+    .custom-navbar.top-nav-collapse {
+            padding: 8px;
+            background: #4B4B4B;
+        }
 }

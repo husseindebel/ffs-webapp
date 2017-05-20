@@ -13,10 +13,12 @@ export class HomepageComponent  {
     // searchType: string[];
     currentSearch: string;
     searchTerms: DOMObject[];
+    showSomething: boolean;
 
     constructor(private router: Router){
         // this.searchType = ['RIC', 'Topic Code']
         // this.currentSearch = 'ric';
+        this.showSomething = false;
     }
 
     displaySearch(topicCode: string, ric: string, startTime: string, endTime: string){
@@ -50,6 +52,9 @@ export class HomepageComponent  {
             }
         }
         this.displaySearch(topic.join(','), ric.join(','), start, end);
+    }
+    changeState(){
+        this.showSomething = !this.showSomething;
     }
 
 }

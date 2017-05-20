@@ -64,10 +64,25 @@
 #search h3 {
   font-size: 18px;
 }
-.search-card {
-    width:48%;
-    height:100%;
+.dual-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 100px;
 }
+.left-panel {
+    width: 50%;
+    float: left;
+}
+.right-panel {
+    width: 50%;
+    float: right;
+}
+.search-form {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15%;
+}
+
 
 .section-title .heading {
     color: #FE4A67;
@@ -76,4 +91,8 @@
 
 .section-title {
     padding-bottom: 32px;
+}
+
+#sectors {
+  text-align: center;
 }
