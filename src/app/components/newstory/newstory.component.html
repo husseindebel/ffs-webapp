@@ -31,7 +31,8 @@
                 <newsarticle [story]="story"></newsarticle>
             </div>
             <div *ngIf="currentSection === 'stats'">
-                <newsstats></newsstats>
+                 <!-- [RICList]="story.InstrumentIDs.join(',')"  -->
+                <newsstats [Date]="story.Date | date: 'yyyy-MM-dd'"></newsstats>
             </div>
 
         </div>

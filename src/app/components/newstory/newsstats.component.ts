@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {NewsStatsService} from '../../services/newsstats.service';
@@ -35,21 +35,24 @@ export var multi = [
 `,
   providers: [NewsStatsService]
 })
-export class NewsStatsComponent {
+export class NewsStatsComponent implements OnInit{
+    // @Input() RICList: string;
+    @Input() Date: string;
+
   data: any[] = [];
   view: any[] = [1000, 500];  // chart size
   result: any[] = [];
   temp: any[] = [];
   hilight: any [] = [];
-  RICList: string = 'ABP.AX,BHP.AX,CBA.AX';  // RIC here
-  Date: string = '2012-12-12';  // Date here
+  RICList: string = 'BHP.AX';  // RIC here
+  // Date: string = '2012-12-12';  // Date here
   tempRIC: string;
   // options
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = this.fixLegend();
   showXAxisLabel = true;
+  showLegend: boolean;
   xAxisLabel = 'Date';
   showYAxisLabel = true;
   yAxisLabel = 'Return';
@@ -57,18 +60,25 @@ export class NewsStatsComponent {
     domain: this.getRandomColor()
   };
 
+
+  ngOnInit(){
+      console.log(this.RICList);
+      this.showLegend = this.fixLegend();
+        Promise.all([ // 0 means ABP.AX, 1 means BHP.AX, as following.
+          this.DataS.getData(this.RICList, this.Date)
+          .then(val => {
+            for (let i in this.RICList.split(',')){
+              this.data = val['CompanyReturns'][i]['Data'];
+              this.modify(this.modify2(val['CompanyReturns'][i]['Data'],i), this.RICList.split(',')[i]);
+            }
+          console.log(this.result);
+          this.draw(this.result);
+        })
+      ]);
+
+  }
   constructor(private DataS: NewsStatsService) {
-    Promise.all([ // 0 means ABP.AX, 1 means BHP.AX, as following.
-      this.DataS.getData(this.RICList, this.Date)
-      .then(val => {
-        for (let i in this.RICList.split(',')){
-          this.data = val['CompanyReturns'][i]['Data'];
-          this.modify(this.modify2(val['CompanyReturns'][i]['Data'],i), this.RICList.split(',')[i]);
-        }
-      console.log(this.result);
-      this.draw(this.result);
-    })
-  ]);
+      console.log(this.RICList)
   }
 
   onSelect(event) {
