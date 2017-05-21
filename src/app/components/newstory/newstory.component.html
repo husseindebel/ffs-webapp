@@ -1,32 +1,39 @@
 <div *ngIf="story === undefined">loading...</div>
 <div *ngIf="story !== undefined">
-<div class="container">
+<div class="container newstory-container">
   <div class="row">
         <div class="col s1"></div>
+          <!-- <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li> -->
         <div class="col s10">
-          <div class="card white">
-            <div class="card-content black-text">
-              <span class="card-title">{{story.Headline}}</span>
-              <div class="row">
-                <div class="col s6 left">
-                    <!-- for some reason these are listed with new lines (would rather inline) below css doesnt work-->
-                    <ul style="list-style: none; display: inline; margin: 0; padding: 0;">
-                        <li *ngFor="let ric of story.InstrumentIDs" style="display: inline; margin: 0; padding: 0;">
-                            <p class="grey-text">{{ric}}</p>
-                        </li>
-                    </ul>
+            <div class="card white">
+              <div class="card-content black-text">
+                <span class="card-title">{{story.Headline}}</span>
+                <div class="row">
+                  <div class="col s6 left">
+                      <!-- for some reason these are listed with new lines (would rather inline) below css doesnt work-->
+                      <ul style="list-style: none; display: inline; margin: 0; padding: 0;">
+                          <li *ngFor="let ric of story.InstrumentIDs" style="display: inline; margin: 0; padding: 0;">
+                              <p class="grey-text">{{ric}}</p>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="col s6 right" style="text-align:right;">
+                    <p class="grey-text">{{story.Date}}</p>
+                  </div>
                 </div>
-                <div class="col s6 right" style="text-align:right;">
-                  <p class="grey-text">{{story.Date}}</p>
-                </div>
+                <ul class="tabs">
+                  <li class="tab col s3"><a [class.active]="articleActive" (click)="changeArticle()">Articles</a></li>
+                    <li class="tab col s3"><a [class.active]="statsActive" (click)="changeStats()">Stats</a></li>
+                </ul>
               </div>
             </div>
-            <div class="card-action" style="text-align:center; font-family:Serif">
-              <pre>{{story.NewsText}}</pre>
-              <br><br>
+            <div *ngIf="currentSection === 'article'">
+                <newsarticle [story]="story"></newsarticle>
+            </div>
+            <div *ngIf="currentSection === 'stats'">
+                <newsstats></newsstats>
             </div>
 
-          </div>
         </div>
         <div class="col s1"></div>
   </div>

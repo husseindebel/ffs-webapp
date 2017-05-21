@@ -6,3 +6,9 @@ li:not(:last-child){
     padding: 0 15px;
     left: 450px;
 }
+
+.results-container {
+	width:75%;
+	margin:0 auto;
+	padding-top:5%;
+}

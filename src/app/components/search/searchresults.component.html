@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container results-container">
     <h3>Search Results</h3>
   <!-- Dropdown Structure -->
   <p>filter by:<p><a class='dropdown-button red btn' href='#' data-activates='dropdown1'>Date</a>
@@ -6,7 +6,6 @@
     <li><a href="#!">one</a></li>
     <li><a href="#!">two</a></li>
   </ul>
-    <tag-input [(ngModel)]="searchTerms" name="name" (onTextChange)="doSomething()"></tag-input>
     <ul style="list-style: none;">
       <div *ngIf="logfile === undefined">loading...</div>
       <div class="row">

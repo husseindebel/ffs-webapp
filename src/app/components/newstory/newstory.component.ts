@@ -8,19 +8,22 @@ import {OnInit} from '@angular/core';
     moduleId: module.id,
     selector: 'newstory',
     templateUrl: 'newstory.component.html',
-    styleUrls: ['./newstory.component.css'],
+    styleUrls: ['newstory.component.css'],
     providers: [NewsService]
 })
 
 export class NewsStoryComponent implements OnInit{
 
     story: NewsStory;
+    currentSection: string;
+    articleActive = true;
+    statsActive = false;
 
     constructor(private route: ActivatedRoute,
                 private router: Router,
                 private service: NewsService
     ){
-
+        this.currentSection = 'article'
     }
 
     ngOnInit(){
@@ -35,6 +38,21 @@ export class NewsStoryComponent implements OnInit{
     formatResults(story){
         console.log(story.NewsText);
         this.story = story
+        var result = story.NewsText.replace(/<[A-Za-z0-9]+.[A-Za-z0-9]+>/g, '');
+        // result= result.replace(/\s\s/, ' ');
+        this.story.NewsText = result;
+    }
+
+    changeStats(){
+        this.currentSection = 'stats';
+        this.articleActive = false;
+        this.statsActive = true;
+    }
+
+    changeArticle(){
+        this.currentSection = 'article';
+        this.articleActive = true;
+        this.statsActive = false;
     }
 
 }

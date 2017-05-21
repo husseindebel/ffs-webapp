@@ -63,21 +63,21 @@
                     <!-- <div class="container"> -->
                         <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
                             <div class="row">
-                                <div class="input-field col s10">
-                                    <input placeholder="RIC and/or topic code" id="search" type="search" required>
-                                </div>
+								<div class="input-field col s8" style="left:30px; right:10px; width 50">
+					                <tag-input [(ngModel)]="searchTerms" name="name"></tag-input>
+								</div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s5">
-                                    <input placeholder="Start Date" type="date" class="datepicker">
+                                    <input #start placeholder="Start Date" type="date" class="datepicker">
                                 </div>
                                 <div class="input-field col s5">
-                                    <input placeholder="End Date" type="date" class="datepicker">
+                                    <input #end placeholder="End Date" type="date" class="datepicker">
                                 </div>
                             </div>
                             <div class="row">
-                                <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
-                            </div>
+ 								<a (click)="onSubmit(start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
+							</div>
                         </form>
                     <!-- </div> -->
                 </div>
