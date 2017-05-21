@@ -35,20 +35,12 @@
                         </div>
                 </div>
                 <div class="search-form collapsible-body">
-                    <div class="container">
                         <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
                             <div class="row">
-                                <div class="input-field chips col s10 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Enter a sector">
                                     <input placeholder="Sector" class="search" type="search" required>
-                                </div>
                             </div>
-
-                            <div class="row">
-                                <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
-                            </div>
+                            <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
                         </form>
-                    </div>
-
                 </div>
                 </li>
             </ul>
@@ -59,7 +51,7 @@
 	            <div class="collapsible-header">
 	                <div class="wow fadeInUp" data-wow-delay="0.6s">
 	                    <div class="card-content black-text">
-                            <i class="icon-browser medium-icon"></i>
+                            <i class="material-icons">library_books</i>
                             <h3>News articles</h3>
                             <hr>
                             <p>Search with a company and/or topic code and select a time period to see
@@ -68,10 +60,10 @@
                     </div>
                 </div>
                 <div class="search-form collapsible-body">
-                    <div class="container">
+                    <!-- <div class="container"> -->
                         <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
                             <div class="row">
-                                <div class="input-field chips col s10 tooltipped" data-position="bottom" data-delay="50" data-tooltip="Enter a combination of RICs and topic codes">
+                                <div class="input-field col s10">
                                     <input placeholder="RIC and/or topic code" id="search" type="search" required>
                                 </div>
                             </div>
@@ -87,7 +79,7 @@
                                 <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
                             </div>
                         </form>
-                    </div>
+                    <!-- </div> -->
                 </div>
                 </li>
             </ul>
