@@ -16,9 +16,15 @@ export class NewsService{
 
         news_url += '?startTime=' + startTime + 'T00:00:00Z';
         news_url += '&endTime=' + endTime + 'T00:00:00Z';
+        // temp fix, this should be fixed in the api
+        var formatted_ric = ric.split(',').map((val) => {
+                            return "RIC_" + val;
+                        }).join(",")
+
         if(ric !== ""){
-            news_url += '&ric=RIC_' + ric ;
+            news_url += '&ric=' + formatted_ric ;
         }
+
         if (topicCode !== ""){
             news_url += '&topicCode=' + topicCode;
         }

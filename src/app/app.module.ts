@@ -2,8 +2,9 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material'
+// import { MaterialModule } from '@angular/material'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TagInputModule } from 'ng2-tag-input';
 
 import 'hammerjs';
 import { AppComponent }  from './app.component';
@@ -19,7 +20,7 @@ import {routing} from './app.routing';
 
 // add routing for routing to work in imports
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, routing, HttpModule, MaterialModule.forRoot(), BrowserAnimationsModule ],
+  imports:      [ TagInputModule, BrowserModule, FormsModule, routing, HttpModule, BrowserAnimationsModule ],
   declarations: [ AppComponent, HomepageComponent, SearchResultComponent, NewsStoryComponent, TimelineComponent, HorizontalTimelineComponent],
   bootstrap:    [ AppComponent ],
 })

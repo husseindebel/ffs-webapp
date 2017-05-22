@@ -18,29 +18,12 @@ COMPANY BY COMPANY</h4>
       <div class="col s1"></div>
       <div class="col s10 ">
         <div class="card white">
-
           <div class="row"></div>
           <form #searchForm="ngForm" (ngSubmit)="onSubmit(searchForm.value, start.value, end.value)">
 
           <div class="row">
             <div class="input-field col s8" style="left:30px; right:10px; width 50">
-                <div *ngIf="currentSearch === 'ric'">
-                <input [(ngModel)]="searchTerms['ric']" name="ric" placeholder="{{currentSearch}}" #ric id="search" type="search"  required>
-                </div>
-
-                <div *ngIf="currentSearch === 'topic'">
-                <input [(ngModel)]="searchTerms['topic']" name="topic" placeholder="{{currentSearch}}" #topic id="search" type="search"  required>
-                </div>
-            </div>
-            <div class="input-field col s4" style="left:30px; right:30px">
-              <div class="switch" style="text-align:center;">
-                <label>
-                  RIC
-                  <input (click)="setCurrentSearch(searchForm.value)" type="checkbox" class="red lighten-1">
-                  <span class="lever red lighten-1"></span>
-                  Topic
-                </label>
-              </div>
+                <tag-input [(ngModel)]="searchTerms" name="name"></tag-input>
             </div>
           </div>
 
@@ -56,7 +39,7 @@ COMPANY BY COMPANY</h4>
           <div class="row"></div>
           <div class="row">
             <div class="col s1"></div>
-            <a (click)="onSubmit(searchForm.value, start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
+            <a (click)="onSubmit(start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
           </div>
 
           <div class="row"></div>
