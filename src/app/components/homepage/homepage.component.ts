@@ -8,7 +8,8 @@ import {NgModel, NgForm} from '@angular/forms';
     templateUrl: 'homepage.component.html',
     styleUrls: ['homepage.component.css']
 })
-export class HomepageComponent  {
+
+export class HomepageComponent {
 
     // searchType: string[];
     currentSearch: string;
@@ -51,7 +52,6 @@ export class HomepageComponent  {
         }
         this.displaySearch(topic.join(','), ric.join(','), start, end);
     }
-
 }
 
 interface DOMObject {

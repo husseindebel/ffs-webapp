@@ -28,7 +28,7 @@ export class SearchResultComponent implements OnInit {
       this.showCurrentStory = false;
     }
 
-    ngOnInit() {
+    ngOnInit(){
         this.route.queryParams.subscribe((event) => {
             this.searchTerms = event['topicCode'].split(',');
             this.searchTerms = this.searchTerms.concat(event['ric'].split(','));
@@ -50,9 +50,7 @@ export class SearchResultComponent implements OnInit {
       }else{
         this.showCurrentStory = false;
       }
-
     }
-
 
     doSomething(){
         console.log("hussein");
@@ -64,7 +62,6 @@ export class SearchResultComponent implements OnInit {
             queryParams: { headline: encodeURIComponent(headline) }
         });
     }
-
 }
 
 interface newsdata {

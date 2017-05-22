@@ -1,43 +1,77 @@
-<div class="container">
-    <h3>Search Results</h3>
-  <!-- Dropdown Structure -->
-  <p>filter by:<p><a class='dropdown-button red btn' href='#' data-activates='dropdown1'>Date</a>
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-  </ul>
-    <tag-input [(ngModel)]="searchTerms" name="name" (onTextChange)="doSomething()"></tag-input>
-    <ul style="list-style: none;">
-      <div *ngIf="logfile === undefined">loading...</div>
-      <div class="row">
-          <!-- <div (click)="doSomething()" class="red btn">hussein</div> -->
-      <li *ngFor="let article of news">
-          <div class="col s1"></div>
-                  <div class="col s5">
-                    <div class="card white">
-                      <div class="card-content black-text">
+<!-- navigation section -->
+<section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand">Sectors</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+			    <li><a href="#search" class="smoothScroll">Search</a></li>
+				<li><a href="#sectors" class="smoothScroll">Sectors</a></li>
+				<li><a href="#recentNews">Recent News</a></li>
+				<li><a href="#about" class="smoothScroll">Us</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<tag-input [(ngModel)]="searchTerms" name="name" (onTextChange)="doSomething()"></tag-input>
+<div class="results-container container">
+    <div class="results-options">
+        <h2>Search results</h2>
+    </div>
+    <ul>
+        <div *ngIf="logfile === undefined">loading...</div>
+        <li *ngFor="let article of news">
+            <div class="result card effect__click">
+                <div class="card__front">
+                    <div class="card-content black-text">
                         <span class="card-title">{{article.Headline}}</span>
                         <div class="row">
-                          <div class="col s6 left" style="padding-left:0px;">
-                                <div *ngFor="let ric of article.InstrumentIDs">
-                                    <p class="grey-text">{{ric}}</p>
-                                </div>
-                          </div>
-                          <div class="col s6 right" style="text-align:right; padding-right:0px;">
-                            <p class="grey-text">{{article.TimeStamp}}</p>
-                          </div>
+                            <div class="col s6 left" style="padding-left:0px;">
+                                <p class="grey-text">{{ric}}</p>
+                            </div>
+                            <div class="col s6 right" style="text-align:right; padding-right:0px;">
+                                <p class="grey-text">{{article.TimeStamp}}</p>
+                            </div>
+                        </div>            
+                        <div class="card-action">
+                            <p>{{article.NewsText.slice(0,149)}}</p>
                         </div>
-                      </div>
-                      <div class="card-action" >
-                        <p>{{article.NewsText.slice(0,149)}}</p>
-                        <br><br>
-                        <a (click)="displayNewsStory(article.Headline)" class="waves-effect waves-light red btn">Read More</a>
-                      </div>
-
                     </div>
-                  </div>
-     </li>
- </div>
+                    <div class="read-button">
+                        <a (click)="displayNewsStory(article.Headline)" class="waves-effect waves-light red btn">Read More</a>
+                    </div>
+                </div>
+                <div class="card__back">
+                graph here
+                </div>       
+            </div>
+        </li>
         <div *ngIf="logfile"> {{logfile.success ? "":"No results:( Please try again"}} </div>
-     </ul>
+    </ul>
 </div>
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<p>Copyright © Sectors</p>
+				<hr>
+				<ul class="social-icon">
+					<li><a href="#" class="fa fa-facebook wow fadeIn" data-wow-delay="0.3s"></a></li>
+					<li><a href="#" class="fa fa-twitter wow fadeIn" data-wow-delay="0.6s"></a></li>
+					<li><a href="#" class="fa fa-dribbble wow fadeIn" data-wow-delay="0.9s"></a></li>
+					<li><a href="#" class="fa fa-behance wow fadeIn" data-wow-delay="0.9s"></a></li>
+					<li><a href="#" class="fa fa-tumblr wow fadeIn" data-wow-delay="0.9s"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>

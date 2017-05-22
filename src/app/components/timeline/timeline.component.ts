@@ -29,10 +29,10 @@ export class TimelineComponent {
 
     title = 'app works!';
 
-     content = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae
-     ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae,
-     ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam
-     quisquam, quae, temporibus dolores porro doloribus.`;
+    content = `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae
+    ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae,
+    ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam
+    quisquam, quae, temporibus dolores porro doloribus.`;
 
 
     constructor(
@@ -55,7 +55,7 @@ export class TimelineComponent {
     }
 
 
-    ngOnInit() {
+    ngOnInit(){
         this.fetchEvent().then(() => {
             this.isAvailable = true;
         })
@@ -82,17 +82,14 @@ export class TimelineComponent {
         return timeline;
     }
 
-
     fetchEvent(){
-       return  this.service.getNews('2015-10-01', '2015-10-10', '', 'RIO.L').toPromise().then(event => {
+       return this.service.getNews('2015-10-01', '2015-10-10', '', 'RIO.L').toPromise().then(event => {
            this.timeline = this.buildTimeline(event['NewsDataSet']);
         //    console.log(event); // Has a value
         //    console.log(this.timeline); // Has a value
 
        });
    }
-
-
 
 }
 interface newsdata {
