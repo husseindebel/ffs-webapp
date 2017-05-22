@@ -12,7 +12,7 @@ import {OnInit} from '@angular/core';
     providers: [NewsService]
 })
 
-export class NewsStoryComponent implements OnInit {
+export class NewsStoryComponent implements OnInit{
 
     story: NewsStory;
 
@@ -36,6 +36,7 @@ export class NewsStoryComponent implements OnInit {
         console.log(story.NewsText);
         this.story = story
     }
+
 }
 
 interface NewsStory {
