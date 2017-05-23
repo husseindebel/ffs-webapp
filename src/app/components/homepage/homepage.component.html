@@ -37,7 +37,7 @@
                 <div class="search-form collapsible-body">
                         <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
                             <div class="row">
-                                    <input placeholder="Sector" class="search" type="search" required>
+                                    <input placeholder="Sector" type="search" required>
                             </div>
                             <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
                         </form>
@@ -62,23 +62,33 @@
                 <div class="search-form collapsible-body">
                     <!-- <div class="container"> -->
                         <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
-                            <div class="row">
+							<div class="row">
 								<div class="input-field col s8" style="left:30px; right:10px; width 50">
-					                <tag-input [(ngModel)]="searchTerms" name="name"></tag-input>
+					                <tag-input
+									 class="tooltipped"
+									 data-position="bottom"
+									 data-delay="50"
+									 data-tooltip="Input RIC codes or Topic Codes at once"
+									 [(ngModel)]="searchTerms"
+									 name="name"
+									 theme="dark">
+								 	</tag-input>
 								</div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s5">
-                                    <input #start placeholder="Start Date" type="date" class="datepicker">
+                                    <input #start placeholder="Start Date" type="date">
+									<p style="text-align:center;">Start Date</p>
                                 </div>
-                                <div class="input-field col s5">
-                                    <input #end placeholder="End Date" type="date" class="datepicker">
-                                </div>
+                            	<div class="input-field col s5">
+                                	<input #end placeholder="End Date" type="date">
+									<p style="text-align:center;">End Date</p>
+								</div>
                             </div>
                             <div class="row">
  								<a (click)="onSubmit(start.value, end.value)" class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
 							</div>
-                        </form>
+		                </form>
                     <!-- </div> -->
                 </div>
                 </li>
@@ -87,29 +97,3 @@
     </div>
 </section>
 <hr class="section-divider">
-
-<section id="sectors">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col s12">
-				<div class="section-title">
-					<h1 class="heading bold">SECTORS</h1>
-					<hr>
-				</div>
-			</div>
-			<!-- ISO section -->
-            <div class="row">
-              <div class="col s12">
-                <ul class="tabs">
-                  <li class="tab col s3"><a href="#test1">Test 1</a></li>
-                  <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-                  <li class="tab col s3"><a href="#test4">Test 4</a></li>
-                </ul>
-              </div>
-              <div id="test1" class="col s12">Test 1</div>
-              <div id="test2" class="col s12">Test 2</div>
-              <div id="test4" class="col s12">Test 4</div>
-            </div>
-	    </div>
-    </div>
-</section>

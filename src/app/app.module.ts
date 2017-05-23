@@ -16,6 +16,8 @@ import { TimelineComponent } from './components/timeline/timeline.component';
 import {HorizontalTimelineComponent} from './components/horizontal-timeline/horizontal-timeline.component';
 import {NewsArticleComponent} from './components/newstory/newsarticle.component'
 import {NewsStatsComponent} from './components/newstory/newsstats.component';
+import {SectorPageComponent} from './components/sectors/sectorspage.component';
+import {SectorStatsComponent} from './components/sectors/sectorstats.component';
 
 // import { NewsDisplayComponent } from './components/newsdisplay.component';
 //
@@ -25,7 +27,7 @@ import {routing} from './app.routing';
 @NgModule({
   imports:      [ TagInputModule, BrowserModule, FormsModule, routing, HttpModule, BrowserAnimationsModule, NgxChartsModule ],
   declarations: [ AppComponent, HomepageComponent, SearchResultComponent, NewsStoryComponent, TimelineComponent, HorizontalTimelineComponent,
-                  NewsArticleComponent, NewsStatsComponent ],
+                  NewsArticleComponent, NewsStatsComponent, SectorPageComponent, SectorStatsComponent ],
   bootstrap:    [ AppComponent ],
 })
 export class AppModule { }

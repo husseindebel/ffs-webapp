@@ -38,9 +38,14 @@ export class NewsStoryComponent implements OnInit{
     formatResults(story){
         console.log(story.NewsText);
         this.story = story
+        var filter_ric = story.InstrumentIDs.map(function(elem){
+            return elem.replace('RIC_', '')
+        });
+        console.log(filter_ric)
         var result = story.NewsText.replace(/<[A-Za-z0-9]+.[A-Za-z0-9]+>/g, '');
         // result= result.replace(/\s\s/, ' ');
         this.story.NewsText = result;
+        this.story.InstrumentIDs = filter_ric;
     }
 
     changeStats(){

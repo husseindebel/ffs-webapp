@@ -32,7 +32,7 @@
             </div>
             <div *ngIf="currentSection === 'stats'">
                  <!-- [RICList]="story.InstrumentIDs.join(',')"  -->
-                <newsstats [Date]="story.Date | date: 'yyyy-MM-dd'"></newsstats>
+                <newsstats [RICList]="story.InstrumentIDs.join(';')" [Date]="story.Date | date: 'yyyy-MM-dd'"></newsstats>
             </div>
 
         </div>

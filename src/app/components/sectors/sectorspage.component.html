@@ -1,0 +1,36 @@
+<div class="container sector-container">
+    <h1>Mineral Fuel Lubricant And Related Material</h1>
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab"><a [class.active]="currentStats" class="active" href="#test4" (click)="changeStats()">Sector</a></li>
+      <li class="tab"><a [class.active]="currentStats" href="#test5" (click)="changeStats()">Company Sectors</a></li>
+    </ul>
+
+    <div *ngIf="currentStats === 'sector'">
+        <div class="row">
+            <sectorstats></sectorstats>
+        </div>
+    </div>
+    <div *ngIf="currentStats === 'company'">
+        <div class="row">
+            <newsstats [RICList]="ricCodes" [Date]="date"></newsstats>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Latest Sector News</h2>
+        <ul style="list-style: none;">
+            <li *ngFor="let article of news">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>{{article.Headline}}</h3>
+                            <span class="grey-text">{{article.TimeStamp}}</span>
+                        </div>
+                        <div class="card-action">
+                            <a (click)="displayNewsStory(article.Headline)" class="waves-effect waves-light red btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

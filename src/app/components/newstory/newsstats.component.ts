@@ -38,13 +38,14 @@ export var multi = [
 export class NewsStatsComponent implements OnInit{
     // @Input() RICList: string;
     @Input() Date: string;
+    @Input() RICList: string;
 
   data: any[] = [];
   view: any[] = [1000, 500];  // chart size
   result: any[] = [];
   temp: any[] = [];
   hilight: any [] = [];
-  RICList: string = 'BHP.AX';  // RIC here
+  // RICList: string = 'BHP.AX';  // RIC here
   // Date: string = '2012-12-12';  // Date here
   tempRIC: string;
   // options
@@ -64,17 +65,17 @@ export class NewsStatsComponent implements OnInit{
   ngOnInit(){
       console.log(this.RICList);
       this.showLegend = this.fixLegend();
-        Promise.all([ // 0 means ABP.AX, 1 means BHP.AX, as following.
-          this.DataS.getData(this.RICList, this.Date)
-          .then(val => {
-            for (let i in this.RICList.split(',')){
-              this.data = val['CompanyReturns'][i]['Data'];
-              this.modify(this.modify2(val['CompanyReturns'][i]['Data'],i), this.RICList.split(',')[i]);
-            }
-          console.log(this.result);
-          this.draw(this.result);
-        })
-      ]);
+      Promise.all([ // 0 means ABP.AX, 1 means BHP.AX, as following.
+    this.DataS.getData(this.RICList, this.Date)
+    .then(val => {
+      for (let i in this.RICList.split(';')){
+        this.data = val['CompanyReturns'][i]['Data'];
+        this.modify(this.modify2(val['CompanyReturns'][i]['Data'],i), this.RICList.split(';')[i]);
+      }
+      //console.log(this.result);
+      this.draw(this.result);
+    })
+  ]);
 
   }
   constructor(private DataS: NewsStatsService) {
@@ -133,7 +134,7 @@ export class NewsStatsComponent implements OnInit{
 
  fixLegend(){
    var returnMe;
-   if(this.RICList.split(',').length > 1){
+   if(this.RICList.split(';').length > 1){
      returnMe = true;
    }else{
      returnMe = false;

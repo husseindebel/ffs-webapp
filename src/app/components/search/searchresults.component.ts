@@ -5,6 +5,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { NewsService } from '../../services/newsdata.service';
 import {News} from '../../News'
 import { Observable }         from 'rxjs/Observable';
+import {Newsdata} from '../../NewsData'
 
 @Component({
     moduleId: module.id,
@@ -14,7 +15,7 @@ import { Observable }         from 'rxjs/Observable';
     providers: [NewsService],
 })
 export class SearchResultComponent implements OnInit {
-    news: newsdata[];
+    news: Newsdata[];
     logfile: Object[];
     currentStory: News;
     showCurrentStory: boolean;
@@ -65,12 +66,4 @@ export class SearchResultComponent implements OnInit {
         });
     }
 
-}
-
-interface newsdata {
-    Headline:string;
-    InstrumentIDs:string[];
-    NewsText:string;
-    TimeStamp:string;
-    TopicCode:string[];
 }
