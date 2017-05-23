@@ -15,7 +15,6 @@ export var multi = [
 @Component({
   selector: 'newsstats',
   template: `
-  <h3>Result of {{RICList}}</h3>
   <ngx-charts-line-chart
     [view]="view"
     [scheme]="colorScheme"

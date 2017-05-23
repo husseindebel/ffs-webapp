@@ -7,13 +7,15 @@ import { NewsStoryComponent } from './components/newstory/newstory.component';
 // import { NewsDisplayComponent } from './components/newsdisplay.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { SectorPageComponent } from './components/sectors/sectorspage.component';
+import { CompanyPageComponent } from './components/companypage/companypage.component';
 
 const appRoutes = [
     {path: '', component: HomepageComponent},
     {path: 'search', component: SearchResultComponent},
     {path: 'news', component: NewsStoryComponent},
     {path: 'timeline', component: TimelineComponent},
-    {path: 'sectors', component: SectorPageComponent}
+    {path: 'sectors', component: SectorPageComponent},
+    {path: 'company', component: CompanyPageComponent}
 ]
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

@@ -31,16 +31,57 @@
 	                        <i class="icon-compass medium-icon"></i>
                             <h3>Sector</h3>
                             <hr>
-                            <p>Search for a sector and see the latest information on belonging companies.</p>
+                            <p>Search for a sector and see the latest information on <br>belonging companies.</p>
                         </div>
                 </div>
                 <div class="search-form collapsible-body">
-                        <form (ngSubmit)="onSubmit(searchQuery.value)" #heroForm="ngForm">
-                            <div class="row">
-                                    <input placeholder="Sector" type="search" required>
-                            </div>
-                            <a class="waves-effect waves-light red lighten-1 btn-large col s10">Search</a>
-                        </form>
+					  <ul class="collapsible" data-collapsible="accordion">
+					    <li>
+					      <div class="collapsible-header">Retail</div>
+					      <div class="collapsible-body">
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<br/>
+					      </div>
+					    </li>
+					    <li>
+					      <div class="collapsible-header">Commodities</div>
+					      <div class="collapsible-body">
+							<a class="btn red" routerLink="/sectors"><li> Mineral Fuel Lubricant And Related Material</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> Crude Material And Inedible</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> Chemicals And Related Products</li></a>
+							<br/>
+							<br/>
+							<a class="btn red"><li> MachineryAndTransportEquipments</li></a>
+					      </div>
+					    </li>
+					    <li>
+					      <div class="collapsible-header">Technology</div>
+					      <div class="collapsible-body">
+					      	<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+							<a class="btn red"><li> Hussein</li></a>
+							<br/>
+					      </div>
+					    </li>
+					  </ul>
                 </div>
                 </li>
             </ul>

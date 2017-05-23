@@ -1,0 +1,24 @@
+<div class="container company-container">
+    <h2>{{company | async}} - Company Name</h2>
+    <div class="row">
+        <newsstats [RICList]="company | async" [Date]="date"></newsstats>
+    </div>
+    <div class="row">
+        <h2>Latest {{company | async}} News</h2>
+        <ul style="list-style: none;">
+            <li *ngFor="let article of latest_news">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3>{{article.Headline}}</h3>
+                            <span class="grey-text">{{article.TimeStamp}}</span>
+                        </div>
+                        <div class="card-action">
+                            <a (click)="displayNewsStory(article.Headline)" class="waves-effect waves-light red btn">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

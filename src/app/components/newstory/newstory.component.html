@@ -13,7 +13,7 @@
                       <!-- for some reason these are listed with new lines (would rather inline) below css doesnt work-->
                       <ul style="list-style: none; display: inline; margin: 0; padding: 0;">
                           <li *ngFor="let ric of story.InstrumentIDs" style="display: inline; margin: 0; padding: 0;">
-                              <p class="grey-text">{{ric}}</p>
+                              <a [routerLink]="['/company']" [queryParams]="{ c: ric }" class="grey-text">{{ric}}</a>
                           </li>
                       </ul>
                   </div>
