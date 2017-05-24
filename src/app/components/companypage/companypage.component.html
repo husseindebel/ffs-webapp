@@ -1,5 +1,5 @@
 <div class="container company-container">
-    <h2>{{company | async}} - Company Name</h2>
+    <h2>{{company | async}} - {{companyName}}</h2>
     <div class="row">
         <newsstats [RICList]="company | async" [Date]="date"></newsstats>
     </div>

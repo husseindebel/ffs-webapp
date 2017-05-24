@@ -26,7 +26,7 @@ export class SectorPageComponent implements OnInit{
       private router: Router
     ) {
         this.currentStats = 'sector';
-        this.ricCodes = 'BHP.AX;BLT.L';
+        this.ricCodes = 'BHP.AX;BLT.L;GLEN.L;RIO.L;FMG.AX';
         this.date = '2015-10-10';
     }
 

@@ -5,6 +5,9 @@ import { NewsService } from '../../services/newsdata.service';
 // import {News} from '../../News'
 import { Observable }         from 'rxjs/Observable';
 import {Newsdata} from '../../NewsData'
+import {Companies} from '../../Companies';
+
+
 
 @Component({
     moduleId: module.id,
@@ -19,13 +22,20 @@ export class CompanyPageComponent implements OnInit{
     company: Observable<string>;
     date: string;
     latest_news: Newsdata;
-    current_page
+    companyName: string;
 
     constructor(private route: ActivatedRoute, private service: NewsService, private router: Router) {
         this.date = '2015-12-12';
+        // this.companyName = Companies['BHP.AX']
     }
     ngOnInit(){
         this.company = this.route.queryParams.map(params => params['c'] || 'None')
+
+        this.route.queryParams.forEach((params: Params) => {
+            var something = params['c'];
+            this.companyName = Companies[something]
+        });
+
         this.route.queryParams
           .switchMap((params: Params) => this.service.getNews(
                 '2015-12-10', '2015-12-12',
@@ -41,5 +51,9 @@ export class CompanyPageComponent implements OnInit{
         this.router.navigate(['/news'], {
             queryParams: { headline: encodeURIComponent(headline) }
         });
+    }
+
+    getCompanyName(){
+        this.company.subscribe(val => this.companyName = val)
     }
 }

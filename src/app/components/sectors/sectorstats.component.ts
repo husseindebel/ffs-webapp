@@ -22,7 +22,7 @@ export var multi = [
 export class SectorStatsComponent  implements OnInit{
     area = 'MerchandiseExports';  // change here
     categoryList: string = 'MineralFuelLubricantAndRelatedMaterial';  // category here
-    stateList: string = 'Total,NSW,NT'; // state here
+    stateList: string = 'Total,NSW,NT,VIC,QLD,SA,WA'; // state here
     startDate: string = '2015-01-01';  // Date here
     endDate: string = '2015-12-12';
     data: any[] = [];

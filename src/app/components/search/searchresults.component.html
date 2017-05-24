@@ -1,11 +1,7 @@
 <div class="container results-container">
     <h3>Search Results</h3>
   <!-- Dropdown Structure -->
-  <p>filter by:<p><a class='dropdown-button red btn' href='#' data-activates='dropdown1'>Date</a>
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-  </ul>
+  <p>Ordered By Date Ascending<p>
     <ul style="list-style: none;">
       <div *ngIf="logfile === undefined">loading...</div>
       <div class="row">
@@ -19,7 +15,7 @@
                         <div class="row">
                           <div class="col s6 left" style="padding-left:0px;">
                                 <div *ngFor="let ric of article.InstrumentIDs">
-                                    <p class="grey-text">{{ric}}</p>
+                                    <a [routerLink]="['/company']" [queryParams]="{ c: ric }" class="grey-text">{{ric}}</a>
                                 </div>
                           </div>
                           <div class="col s6 right" style="text-align:right; padding-right:0px;">

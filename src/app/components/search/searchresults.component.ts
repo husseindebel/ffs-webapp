@@ -40,6 +40,13 @@ export class SearchResultComponent implements OnInit {
                 params['startTime'], params['endTime'],
                 params['topicCode'], params['ric']))
           .subscribe((news) => {
+              for (var n in news['NewsDataSet']){
+                  var current = news['NewsDataSet'][n]
+                  var filter_ric = current.InstrumentIDs.map(function(elem){
+                      return elem.replace('RIC_', '')
+                  });
+                  news['NewsDataSet'][n].InstrumentIDs = filter_ric;
+              }
               this.news = news['NewsDataSet'];
               this.logfile = news['logfile']
           });

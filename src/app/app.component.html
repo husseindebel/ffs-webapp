@@ -10,10 +10,8 @@
 		</div>
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-			    <li><a href="#search" class="smoothScroll">Search</a></li>
-				<li><a href="#sectors" class="smoothScroll">Sectors</a></li>
-				<li><a href="#recentNews">Recent News</a></li>
-				<li><a href="#about" class="smoothScroll">Us</a></li>
+				<li><a routerLink="/sectors"  class="smoothScroll">Sectors</a></li>
+				<li><a [routerLink]="['/search']"  [queryParams]="{ startTime: '2015-12-12', endTime: '2015-12-31', topicCode: '', ric: '' }">Recent News</a></li>
 			</ul>
 		</div>
 	</div>
