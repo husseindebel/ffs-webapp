@@ -10,7 +10,7 @@ export class NewsStatsService{
     base_api_url: string
     data: any[]
     constructor(private http: Http){
-        this.base_api_url = 'http://128.199.197.216:3000/v5/id='
+        this.base_api_url = 'http://128.199.255.9:3000/v5//id='
     }
 
     getData(id: string, date:string):Promise<any>{
